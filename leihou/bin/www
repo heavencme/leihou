@@ -7,13 +7,20 @@
 var app = require('../app');
 var debug = require('debug')('leihou:server');
 var http = require('http');
+var fs = require('fs');
 
 /**
- * Get port from environment and store in Express.
+ * Listen on domain socket 
  */
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+var mask = process.umask(0);
+var socket = '/tmp/' + 'leihou.sock';
+if (fs.existsSync(socket)) {
+   fs.unlinkSync(socket);
+}
+
+var port = socket;
+app.set('port', socket);
 
 /**
  * Create HTTP server.
@@ -25,29 +32,16 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, function(){
+    if (mask) {
+        process.umask(mask);
+        mask = null;
+    }
+
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
-  return false;
-}
 
 /**
  * Event listener for HTTP server "error" event.
