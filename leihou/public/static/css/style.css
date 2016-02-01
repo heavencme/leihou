@@ -1,3 +1,81 @@
+@font-face {
+    font-family: 'icomoon';
+    src:    url('fonts/icomoon.eot?tmjnet');
+    src:    url('fonts/icomoon.eot?tmjnet#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?tmjnet') format('truetype'),
+        url('fonts/icomoon.woff?tmjnet') format('woff'),
+        url('fonts/icomoon.svg?tmjnet#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    font-size: 2em;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wechat:before {
+    content: "\e900";
+}
+.icon-home:before {
+    content: "\e901";
+}
+.icon-pencil:before {
+    content: "\e902";
+}
+.icon-images:before {
+    content: "\e903";
+}
+.icon-file-text:before {
+    content: "\e904";
+}
+.icon-coin-yen:before {
+    content: "\e905";
+}
+.icon-cogs:before {
+    content: "\e906";
+}
+.icon-plus:before {
+    content: "\e907";
+}
+.icon-minus:before {
+    content: "\e908";
+}
+.icon-info:before {
+    content: "\e909";
+}
+.icon-cross:before {
+    content: "\e90a";
+}
+.icon-checkmark:before {
+    content: "\e90b";
+}
+.icon-arrow-left:before {
+    content: "\e90c";
+}
+.icon-share:before {
+    content: "\e90d";
+}
+
+
+
+
+
+
+
+
+/* weui */
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -6,3 +84,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+/* self def */
+.main-col {
+  margin-left: auto;
+  margin-right: auto;
+  width: 61.8%;
+}
+
