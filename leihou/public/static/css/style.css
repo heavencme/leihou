@@ -68,13 +68,6 @@
     content: "\e90d";
 }
 
-
-
-
-
-
-
-
 /* weui */
 body {
   padding: 50px;
@@ -82,13 +75,39 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #000000;
 }
 
 
 /* self def */
-.main-col {
+#main_col {
   margin-left: auto;
   margin-right: auto;
+  width: 98.7%;
+  height: 85%;
+  min-height: 500px;
 }
 
+/* self def */
+#home_btn {
+  margin-left: 0px;
+
+}
+
+#feedback_btn a {
+  float: right;
+}
+
+#header_col {
+  margin-left: auto;
+  margin-right: auto;
+  width: 92%;
+  height: 10%;
+  min-height: 50px;
+}
+
+.btn_grid {
+  position: relative;
+  width: 50%;
+  float: left;
+}
