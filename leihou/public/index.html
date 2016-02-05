@@ -1,17 +1,224 @@
-<html>
-
-<head>
-	<script type="text/javascript" src="main.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css" />
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="static/css/weui.css">
+    <link rel="stylesheet" href="static/css/example.css">
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
+<body ontouchstart="">
 
-	<div id="wrap">
-	    <h1>Android L Ripple Effect</h1>
-	    <div id="main">
-	        <button>BUTTON</button>
-	        <button>BUTTON</button>
-	        <button>BUTTON</button>
-	        <button>BUTTON</button>
+	<div id="home">
+	    <div id="header_col">
+			<div id="home_btn" class="btn_grid">
+				<a class="icon-home"></a>
+			</div>
+		
+			<div id="feedback_btn" class="btn_grid">
+				<a class="icon-file-text"></a>
+			</div>
+			
 	    </div>
-	</div>
+	    <div id="main_col">            
+	        <div class="weui_grids">
+	            <a href="#home" class="weui_grid" style="width: 50%">
+	                <div class="weui_grid_icon">
+	                    <span class="icon-coin-yen"></span>
+	                </div>
+	                <p class="weui_grid_label">
+	                    红包
+	                </p>
+	            </a>
+	            <a href="javascript:;" class="weui_grid" style="width: 50%">
+	                <div class="weui_grid_icon">
+	                    <span class="icon-pencil"></span>
+	                </div>
+	                <p class="weui_grid_label">
+	                    出题
+	                </p>
+	            </a>
+	        </div>
+	        <div class="weui_grids">
+	        	<a href="javascript:;" class="weui_grid" style="width: 50%">
+	                <div class="weui_grid_icon">
+	                    <span class="icon-wechat"></span>
+	                </div>
+	                <p class="weui_grid_label">
+	                    留名
+	                </p>
+	            </a>
+	            <a href="javascript:;" class="weui_grid" style="width: 50%">
+	                <div class="weui_grid_icon">
+	                    <span class="icon-share"></span>
+	                </div>
+	                <p class="weui_grid_label">
+	                    发送
+	                </p>
+	            </a>        
+	        </div>
+	        <div class="weui_grids">
+	            <a href="javascript:;" class="weui_grid" style="width: 50%">
+	                <div class="weui_grid_icon">
+	                    <span class="icon-cogs"></span>
+	                </div>
+	                <p class="weui_grid_label">
+	                    设置
+	                </p>
+	            </a>
+	            <a href="#about" class="weui_grid" style="width: 50%">
+	                <div class="weui_grid_icon">
+	                    <span class="icon-info"></span>
+	                </div>
+	                <p class="weui_grid_label">
+	                    关于
+	                </p>
+	            </a>        
+	        </div>
+	    </div>
+
+	    <div id="hongbao">
+	    	<div class="weui_cells_title">红包</div>
+			<div class="weui_cells weui_cells_form">
+				<div class="weui_cell">
+			    	<div class="weui_cell_hd">
+			    		<label class="weui_label">口令</label>
+			    	</div>
+			    	<div class="weui_cell_bd weui_cell_primary">
+			      		<input class="weui_input" type="tel" placeholder="请输入支付宝红包口令">
+			    	</div>
+			  	</div>
+			</div>
+	    </div>
+
+	    <div id="question">
+	    	<div class="weui_cells_title">出题</div>
+			<div class="weui_cells weui_cells_form">
+				<div class="weui_cell">
+			    	<div class="weui_cell_bd weui_cell_primary">
+			      		<textarea id="question_name" class="weui_textarea" placeholder="请输入题目" rows="3"></textarea>
+				      	<div class="weui_textarea_counter">
+				      		<span id="text_num">0</span>/200
+				      	</div>
+			    	</div>
+			  	</div>
+			</div>
+			<div class="weui_cells weui_cells_form">
+				<div class="weui_cell">
+			    	<div class="weui_cell_hd">
+			    		<label class="weui_label">答案A</label>
+			    	</div>
+			    	<div class="weui_cell_bd weui_cell_primary">
+			      		<input class="weui_input" type="tel" placeholder="请输入答案内容">
+			    	</div>
+			  	</div>
+				<div class="weui_cell weui_cell_switch">
+			    	<div class="weui_cell_hd weui_cell_primary">是否正确</div>
+			    	<div class="weui_cell_ft">
+			      		<input class="weui_switch" type="checkbox">
+			    	</div>
+			  	</div>
+			</div>
+			<div class="weui_cells weui_cells_form">
+				<div class="weui_cell">
+			    	<div class="weui_cell_hd">
+			    		<label class="weui_label">答案B</label>
+			    	</div>
+			    	<div class="weui_cell_bd weui_cell_primary">
+			      		<input class="weui_input" type="tel" placeholder="请输入答案内容">
+			    	</div>
+			  	</div>
+				<div class="weui_cell weui_cell_switch">
+			    	<div class="weui_cell_hd weui_cell_primary">是否正确</div>
+			    	<div class="weui_cell_ft">
+			      		<input class="weui_switch" type="checkbox">
+			    	</div>
+			  	</div>
+			</div>
+			<div class="weui_cells weui_cells_form">
+				<div class="weui_cell">
+			    	<div class="weui_cell_hd">
+			    		<label class="weui_label">答案C</label>
+			    	</div>
+			    	<div class="weui_cell_bd weui_cell_primary">
+			      		<input class="weui_input" type="tel" placeholder="请输入答案内容">
+			    	</div>
+			  	</div>
+				<div class="weui_cell weui_cell_switch">
+			    	<div class="weui_cell_hd weui_cell_primary">是否正确</div>
+			    	<div class="weui_cell_ft">
+			      		<input class="weui_switch" type="checkbox">
+			    	</div>
+			  	</div>
+			</div>
+	    </div>
+
+	    <div id="name">
+	    	<div class="weui_cells_title">留名</div>
+			<div class="weui_cells weui_cells_form">
+				<div class="weui_cell">
+			    	<div class="weui_cell_hd">
+			    		<label class="weui_label">猜对</label>
+			    	</div>
+			    	<div class="weui_cell_bd weui_cell_primary">
+			      		<input class="weui_input" type="tel" placeholder="猜对时显示内容">
+			    	</div>
+			  	</div>
+			  	<div class="weui_cell">
+			    	<div class="weui_cell_hd">
+			    		<label class="weui_label">猜错</label>
+			    	</div>
+			    	<div class="weui_cell_bd weui_cell_primary">
+			      		<input class="weui_input" type="tel" placeholder="猜错时显示内容">
+			    	</div>
+			  	</div>
+			</div>
+	    </div>
+		
+		<div id="settings">
+	    	<div class="weui_cells_title">设置红包有效时间（可选）</div>
+			<div class="weui_cells weui_cells_form">
+				<div class="weui_cell">
+				    <div class="weui_cell_hd">
+				    	<label for="" class="weui_label">时间</label>
+				   	</div>
+				    <div class="weui_cell_bd weui_cell_primary">
+				      	<input class="weui_input" type="datetime-local" value="" placeholder="">
+				    </div>
+				  </div>
+			</div>
+	    </div>
+		  
+		<div id="about">
+		    <div class="hd">
+		        <h1 class="page_title">Article</h1>
+		    </div>
+		    <div class="bd">
+		        <article class="weui_article">
+		            <h1>大标题</h1>
+		            <section>
+		                <h2 class="title">章标题</h2>
+		                <section>
+		                    <h3>1.1 节标题</h3>
+		                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		                        consequat. Duis aute</p>
+		                </section>
+		                <section>
+		                    <h3>1.2 节标题</h3>
+		                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		                </section>
+		            </section>
+		        </article>
+		    </div>
+			
+		</div>
+		  
+	
+    </div>
+</body>
 </html>
