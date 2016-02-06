@@ -1,224 +1,267 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <title>WeUI</title>
-    <link rel="stylesheet" href="static/css/weui.css">
-    <link rel="stylesheet" href="static/css/example.css">
+		<link type="text/css" rel="stylesheet" href="static/css/materialize.css"  media="screen,projection"/>
     <link rel="stylesheet" href="static/css/style.css">
-</head>
-<body ontouchstart="">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+	<body>
+		<header>
+      <nav id="lh-nav-btn">
+        <div class="nav-wrapper">
+          <a href="#home" class="breadcrumb left"><i class="icon-home"></i></a>
+          <a href="#!" class="breadcrumb">now</a>
+          <a href="#" id="lh-logo" class="brand-logo center" style="font-size: 45px;margin:auto;">🐵</a>
+          <a href="#modal-bug" class="btn-floating btn-large waves-effect waves-light red right modal-trigger"><i class="icon-bug"></i></a>
+          <!-- Modal Structure -->
+          <div id="modal-bug" class="modal modal-fixed-footer">
+            <div class="modal-content">
+              <h4>Modal Header</h4>
+              <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+            </div>
+          </div>
+          <!-- end of modal-->
+        </div>
+      </nav>
+      
 
-	<div id="home">
-	    <div id="header_col">
-			<div id="home_btn" class="btn_grid">
-				<a class="icon-home"></a>
-			</div>
-		
-			<div id="feedback_btn" class="btn_grid">
-				<a class="icon-file-text"></a>
-			</div>
-			
-	    </div>
-	    <div id="main_col">            
-	        <div class="weui_grids">
-	            <a href="#home" class="weui_grid" style="width: 50%">
-	                <div class="weui_grid_icon">
-	                    <span class="icon-coin-yen"></span>
-	                </div>
-	                <p class="weui_grid_label">
-	                    红包
-	                </p>
-	            </a>
-	            <a href="javascript:;" class="weui_grid" style="width: 50%">
-	                <div class="weui_grid_icon">
-	                    <span class="icon-pencil"></span>
-	                </div>
-	                <p class="weui_grid_label">
-	                    出题
-	                </p>
-	            </a>
-	        </div>
-	        <div class="weui_grids">
-	        	<a href="javascript:;" class="weui_grid" style="width: 50%">
-	                <div class="weui_grid_icon">
-	                    <span class="icon-wechat"></span>
-	                </div>
-	                <p class="weui_grid_label">
-	                    留名
-	                </p>
-	            </a>
-	            <a href="javascript:;" class="weui_grid" style="width: 50%">
-	                <div class="weui_grid_icon">
-	                    <span class="icon-share"></span>
-	                </div>
-	                <p class="weui_grid_label">
-	                    发送
-	                </p>
-	            </a>        
-	        </div>
-	        <div class="weui_grids">
-	            <a href="javascript:;" class="weui_grid" style="width: 50%">
-	                <div class="weui_grid_icon">
-	                    <span class="icon-cogs"></span>
-	                </div>
-	                <p class="weui_grid_label">
-	                    设置
-	                </p>
-	            </a>
-	            <a href="#about" class="weui_grid" style="width: 50%">
-	                <div class="weui_grid_icon">
-	                    <span class="icon-info"></span>
-	                </div>
-	                <p class="weui_grid_label">
-	                    关于
-	                </p>
-	            </a>        
-	        </div>
-	    </div>
 
-	    <div id="hongbao">
-	    	<div class="weui_cells_title">红包</div>
-			<div class="weui_cells weui_cells_form">
-				<div class="weui_cell">
-			    	<div class="weui_cell_hd">
-			    		<label class="weui_label">口令</label>
-			    	</div>
-			    	<div class="weui_cell_bd weui_cell_primary">
-			      		<input class="weui_input" type="tel" placeholder="请输入支付宝红包口令">
-			    	</div>
-			  	</div>
-			</div>
-	    </div>
+		</header>
 
-	    <div id="question">
-	    	<div class="weui_cells_title">出题</div>
-			<div class="weui_cells weui_cells_form">
-				<div class="weui_cell">
-			    	<div class="weui_cell_bd weui_cell_primary">
-			      		<textarea id="question_name" class="weui_textarea" placeholder="请输入题目" rows="3"></textarea>
-				      	<div class="weui_textarea_counter">
-				      		<span id="text_num">0</span>/200
-				      	</div>
-			    	</div>
-			  	</div>
-			</div>
-			<div class="weui_cells weui_cells_form">
-				<div class="weui_cell">
-			    	<div class="weui_cell_hd">
-			    		<label class="weui_label">答案A</label>
-			    	</div>
-			    	<div class="weui_cell_bd weui_cell_primary">
-			      		<input class="weui_input" type="tel" placeholder="请输入答案内容">
-			    	</div>
-			  	</div>
-				<div class="weui_cell weui_cell_switch">
-			    	<div class="weui_cell_hd weui_cell_primary">是否正确</div>
-			    	<div class="weui_cell_ft">
-			      		<input class="weui_switch" type="checkbox">
-			    	</div>
-			  	</div>
-			</div>
-			<div class="weui_cells weui_cells_form">
-				<div class="weui_cell">
-			    	<div class="weui_cell_hd">
-			    		<label class="weui_label">答案B</label>
-			    	</div>
-			    	<div class="weui_cell_bd weui_cell_primary">
-			      		<input class="weui_input" type="tel" placeholder="请输入答案内容">
-			    	</div>
-			  	</div>
-				<div class="weui_cell weui_cell_switch">
-			    	<div class="weui_cell_hd weui_cell_primary">是否正确</div>
-			    	<div class="weui_cell_ft">
-			      		<input class="weui_switch" type="checkbox">
-			    	</div>
-			  	</div>
-			</div>
-			<div class="weui_cells weui_cells_form">
-				<div class="weui_cell">
-			    	<div class="weui_cell_hd">
-			    		<label class="weui_label">答案C</label>
-			    	</div>
-			    	<div class="weui_cell_bd weui_cell_primary">
-			      		<input class="weui_input" type="tel" placeholder="请输入答案内容">
-			    	</div>
-			  	</div>
-				<div class="weui_cell weui_cell_switch">
-			    	<div class="weui_cell_hd weui_cell_primary">是否正确</div>
-			    	<div class="weui_cell_ft">
-			      		<input class="weui_switch" type="checkbox">
-			    	</div>
-			  	</div>
-			</div>
-	    </div>
+    <!- body ->
 
-	    <div id="name">
-	    	<div class="weui_cells_title">留名</div>
-			<div class="weui_cells weui_cells_form">
-				<div class="weui_cell">
-			    	<div class="weui_cell_hd">
-			    		<label class="weui_label">猜对</label>
-			    	</div>
-			    	<div class="weui_cell_bd weui_cell_primary">
-			      		<input class="weui_input" type="tel" placeholder="猜对时显示内容">
-			    	</div>
-			  	</div>
-			  	<div class="weui_cell">
-			    	<div class="weui_cell_hd">
-			    		<label class="weui_label">猜错</label>
-			    	</div>
-			    	<div class="weui_cell_bd weui_cell_primary">
-			      		<input class="weui_input" type="tel" placeholder="猜错时显示内容">
-			    	</div>
-			  	</div>
-			</div>
-	    </div>
-		
-		<div id="settings">
-	    	<div class="weui_cells_title">设置红包有效时间（可选）</div>
-			<div class="weui_cells weui_cells_form">
-				<div class="weui_cell">
-				    <div class="weui_cell_hd">
-				    	<label for="" class="weui_label">时间</label>
-				   	</div>
-				    <div class="weui_cell_bd weui_cell_primary">
-				      	<input class="weui_input" type="datetime-local" value="" placeholder="">
-				    </div>
-				  </div>
-			</div>
-	    </div>
-		  
-		<div id="about">
-		    <div class="hd">
-		        <h1 class="page_title">Article</h1>
-		    </div>
-		    <div class="bd">
-		        <article class="weui_article">
-		            <h1>大标题</h1>
-		            <section>
-		                <h2 class="title">章标题</h2>
-		                <section>
-		                    <h3>1.1 节标题</h3>
-		                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		                        consequat. Duis aute</p>
-		                </section>
-		                <section>
-		                    <h3>1.2 节标题</h3>
-		                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		                </section>
-		            </section>
-		        </article>
-		    </div>
-			
-		</div>
-		  
-	
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br><br>
+        <h1 class="header center orange-text">雷猴啊</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">出题发红包，欢乐少不了</h5>
+        </div>
+        <div class="row center">
+          <a href="#preview" id="download-button" class="btn-large waves-effect waves-light orange">红包效果</a>
+        </div>
+        <br>
+      </div>
     </div>
-</body>
-</html>
+
+    <div class="container">
+      <div class="section">
+        <div class="card deep-orange lighten-3">
+          <div class="card-content black-text">
+            <div class="weui_grids">
+              <a href="#home" class="weui_grid waves-effect waves-light" style="width: 50%">
+                <div class="weui_grid_icon">
+                  <i class="icon-yen"></i>
+                </div>
+                <p class="weui_grid_label">红包</p>
+              </a>
+              <a href="javascript:;" class="weui_grid waves-effect waves-light" style="width: 50%">
+                <div class="weui_grid_icon">
+                  <i class="icon-edit"></i>
+                </div>
+                <p class="weui_grid_label">出题</p>
+              </a>
+            </div>
+            <div class="weui_grids">
+              <a href="javascript:;" class="weui_grid waves-effect waves-light" style="width: 50%">
+                <div class="weui_grid_icon">
+                  <i class="icon-chat"></i>
+                </div>
+                <p class="weui_grid_label">留言</p>
+              </a>
+              <a href="javascript:;" class="weui_grid waves-effect waves-light" style="width: 50%">
+                <div class="weui_grid_icon">
+                  <i class="icon-gift"></i>
+                </div>
+                <p class="weui_grid_label">发出</p>
+              </a>        
+            </div>
+            <div class="weui_grids">
+              <a href="javascript:;" class="weui_grid waves-effect waves-light" style="width: 50%">
+                <div class="weui_grid_icon">
+                  <i class="icon-cog"></i>
+                </div>
+                <p class="weui_grid_label">设置</p>
+              </a>
+              <a href="#about" class="weui_grid waves-effect waves-light" style="width: 50%">
+                <div class="weui_grid_icon">
+                  <i class="icon-info"></i>
+                </div>
+                <p class="weui_grid_label">关于</p>
+              </a>        
+            </div>
+          </div>
+        </div><!-end of card->
+
+      </div><!-end of div section 1->
+      
+      <br>
+      
+      <div class="section">
+      <!- func ->
+        <form class="col s12">
+          <!- hongbao ->
+          <div id="hongbao" class="card red lighten-5">
+            <div class="card-content black-text">
+              <span class="card-title"><i class="icon-yen prefix"></i>红包</span>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="hongbao-code" type="text" class="validate">
+                  <label for="hongbao-code">支付宝红包口令</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!- question ->
+          <div id="question" class="card red lighten-5">
+            <div class="card-content black-text">
+              <span class="card-title"><i class="icon-edit prefix"></i>出题</span>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="question-code" class="materialize-textarea"></textarea>
+                  <label class="label-text" for="hongbao-code">点击填写题目内容</label>
+                </div>
+              </div>
+              <div class="row">
+                <table>
+                  <thead>
+                    <tr>
+                      <th data-field="answear-id">序号</th>
+                      <th data-field="answear-ct">答案</th>
+                      <th data-field="answear-rw">对错</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>A</td>
+                      <td>
+                        <div class="input-field col s8">
+                          <input id="answear-a" type="text" class="validate">
+                          <label class="label-text" for="answear-a">答案A</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="switch">
+                          <label class="label-text">
+                            错
+                            <input type="checkbox">
+                            <span class="lever"></span>
+                            对
+                          </label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>B</td>
+                      <td>
+                        <div class="input-field col s8">
+                          <input id="answear-b" type="text" class="validate">
+                          <label class="label-text" for="answear-a">答案B</label>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="switch">
+                          <label class="label-text">
+                            错
+                            <input type="checkbox">
+                            <span class="lever"></span>
+                            对
+                          </label>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>  
+              </div>
+            </div>
+          </div>
+
+          <!- description ->
+          <div id="description" class="card red lighten-5">
+            <div class="card-content black-text">
+              <span class="card-title"><i class="icon-chat prefix"></i>留言</span>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="description-name" type="text" class="validate">
+                  <label for="description-name">尊姓大名</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input id="description-right" type="text" class="validate">
+                  <label for="description-right">
+                    <i class="icon-emo-happy"></i>答对时对Ta说：
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s10">
+                  <input id="description-wrong" type="text" class="validate">
+                  <label for="description-wrong">
+                    <i class="icon-emo-unhappy"></i>答错时对Ta说：
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!- settings ->
+          <div id="settings" class="card red lighten-5">
+            <div class="card-content black-text">
+              <span class="card-title"><i class="icon-cog prefix"></i>设置</span>
+              <div class="row">
+                <p class="range-field">
+                  <label for="settings-value">设置红包有效时间：单位／小时</label> 
+                  <input id="settings-value" type="range" id="test5" min="0" max="72" />
+                </p>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <!- info ->
+        <div id="info" class="card red lighten-5">
+          <div class="card-content black-text">
+            <span class="card-title"><i class="icon-info prefix"></i>关于</span>
+            <p>
+              雷猴啊--业余时间的业余的作品，希望可以给发您红包时增添点乐趣；目前只能支持支付宝口令红包了。
+            </p>
+            <br>
+            <p>
+              如果您发现任何bug或者有任何建议对我反馈，请点击右上角的<i class="icon-bug"></i>图标，注明当前使用微信/浏览器版本；如果您想发个红包鼓励一下作者，也可以直接给我反馈支付宝红包口令，格式如：(赏你的:123456)即可。
+            </p>
+            <br>
+            <p>
+              本软件不盈利，在此声明：支付宝红包的口令会加密，生成红包链接时唯一的，只有收到您红包链接并且答对者才可以看到红包口令；但不排除本人才疏学浅被其他技术宅发现漏洞用于抢红包的情况，所以请勿发送过大红包，本人不对您的红包被别人恶意抢走承担任何责任。
+            </p>
+          </div>
+          <div class="card-action">
+            <a href="http://dearmr.wang" target="_blank">我的博客</a>
+            <a href="http://weibo.com/njgesanghua" target="_blank">我的微博</a>
+          </div>
+        </div>
+          
+        </div><!-end of div section 1->
+
+
+
+      <!- end of func ->
+      </div>
+    </div>
+
+    <!- end of body ->
+
+
+
+	  	<script type="text/javascript" src="static/js/jquery-2.1.4.js"></script>
+	  	<script type="text/javascript" src="static/js/materialize.min.js"></script>
+      <script type="text/javascript" src="static/js/main.js"></script>
+	</body>
+  </html>
