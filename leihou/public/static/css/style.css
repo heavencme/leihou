@@ -150,6 +150,64 @@
 }
 
 
+/* hongbao page */
+.bg-patter {
+  background-color:#ef9a9a;
+  background-image: 
+    radial-gradient(circle at 100% 150%, #ef9a9a 24%, #ffcdd2 25%, #ffcdd2 28%, #ef9a9a 29%, #ef9a9a 36%, #ffcdd2 36%, #ffcdd2 40%, transparent 40%, transparent),
+    radial-gradient(circle at 0    150%, #ef9a9a 24%, #ffcdd2 25%, #ffcdd2 28%, #ef9a9a 29%, #ef9a9a 36%, #ffcdd2 36%, #ffcdd2 40%, transparent 40%, transparent),
+    radial-gradient(circle at 50%  100%, #ffcdd2 10%, #ef9a9a 11%, #ef9a9a 23%, #ffcdd2 24%, #ffcdd2 30%, #ef9a9a 31%, #ef9a9a 43%, #ffcdd2 44%, #ffcdd2 50%, #ef9a9a 51%, #ef9a9a 63%, #ffcdd2 64%, #ffcdd2 71%, transparent 71%, transparent),
+    radial-gradient(circle at 100% 50%, #ffcdd2 5%, #ef9a9a 6%, #ef9a9a 15%, #ffcdd2 16%, #ffcdd2 20%, #ef9a9a 21%, #ef9a9a 30%, #ffcdd2 31%, #ffcdd2 35%, #ef9a9a 36%, #ef9a9a 45%, #ffcdd2 46%, #ffcdd2 49%, transparent 50%, transparent),
+    radial-gradient(circle at 0    50%, #ffcdd2 5%, #ef9a9a 6%, #ef9a9a 15%, #ffcdd2 16%, #ffcdd2 20%, #ef9a9a 21%, #ef9a9a 30%, #ffcdd2 31%, #ffcdd2 35%, #ef9a9a 36%, #ef9a9a 45%, #ffcdd2 46%, #ffcdd2 49%, transparent 50%, transparent);
+  background-size:100px 50px;
+}
+
+#card-container {
+  margin: 19.1% auto;
+  height: 61.8%;
+  width: 61.8%;
+  min-height: 520px;
+  min-width: 268px;
+}
+
+#card-container .card-title {
+  border-radius:0 0 5em 5em;
+  width: 100%;
+  height: 40%; 
+  text-align: center;
+}
+
+#card-container .card-content {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  text-align: center;
+}
+
+#show-me-ur-money-btn {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.78em;
+  top: 1em;
+}
+
+ #show-me-ur-money-btn i {
+  font-size: 40px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+#sender-from {
+  padding-top: 20px;
+  color: yellow;
+  font-weight: 700;
+}
+
+#card-title {
+  color: yellow;
+}
+
 /* weui */
 
 .weui_grid_icon {
