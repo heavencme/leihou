@@ -116,15 +116,22 @@
 
 #lh-nav-btn {
   position: fixed;
-  z-index: 100;
+  z-index: 2016;
 }
 
-#lh-nav-btn div a {
+#lh-nav-btn #nav-top a {
   font-size: 34px;
+  color: #fff;
 }
 
 #lh-nav-btn .nav-wrapper a i {
   font-size: 34px;
+  line-height: 40px;
+}
+
+#lh-nav-btn .nav-wrapper #bug-report-area a i {
+  font-size: 28px;
+  text-align: center;
 }
 
 #lh-logo {
@@ -132,6 +139,16 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+#lh-nav-btn-bug {
+  margin-top: 1em;
+  margin-right: 1em;
+}
+
+#modal-bug {
+  color: #000;
+}
+
 
 /* weui */
 

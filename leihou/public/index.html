@@ -11,21 +11,26 @@
 	<body>
 		<header>
       <nav id="lh-nav-btn">
-        <div class="nav-wrapper">
-          <a href="#home" class="breadcrumb left"><i class="icon-home"></i></a>
-          <a href="#!" class="breadcrumb">now</a>
-          <a href="#" id="lh-logo" class="brand-logo center" style="font-size: 45px;margin:auto;">🐵</a>
-          <a href="#modal-bug" class="btn-floating btn-large waves-effect waves-light red right modal-trigger"><i class="icon-bug"></i></a>
-          <!-- Modal Structure -->
-          <div id="modal-bug" class="modal modal-fixed-footer">
-            <div class="modal-content">
-              <h4>Modal Header</h4>
-              <p>A bunch of text</p>
+        <div id="nav-top" class="nav-wrapper red lighten-2">
+          <a href="#home" class="breadcrumb btn-flat btn-large waves-effect waves-light red lighten-2"><i class="icon-home"></i></a>
+          <a href="#!" class="breadcrumb btn-flat btn-large waves-effect waves-light red lighten-2">红包</a>
+          <a href="#home" id="lh-logo" class="brand-logo center" style="font-size: 45px;margin:auto;">🐵</a>
+          <!-- modal -->
+          
+            <a id="lh-nav-btn-bug" href="#modal-bug" class="btn-floating btn-large waves-effect waves-light red right modal-trigger"><i class="icon-bug"></i></a>
+            <div id="modal-bug" class="modal modal-fixed-footer">
+              <form>
+                <div class="modal-content input-field col s12">
+                  <h4>给作者反馈</h4>
+                  <textarea id="bug-report-area-text" class="materialize-textarea"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-action modal-close btn-flat btn waves-effect waves-light red lighten-2 "><i class="icon-ok"></i></a>
+                </div>
+              </form>
+              
             </div>
-            <div class="modal-footer">
-              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-            </div>
-          </div>
+         
           <!-- end of modal-->
         </div>
       </nav>
@@ -36,7 +41,7 @@
 
     <!- body ->
 
-    <div class="section no-pad-bot" id="index-banner">
+    <div id="home" class="section no-pad-bot" id="index-banner">
       <div class="container">
         <br><br>
         <h1 class="header center orange-text">雷猴啊</h1>
@@ -55,13 +60,13 @@
         <div class="card deep-orange lighten-3">
           <div class="card-content black-text">
             <div class="weui_grids">
-              <a href="#home" class="weui_grid waves-effect waves-light" style="width: 50%">
+              <a href="#hongbao" class="weui_grid waves-effect waves-light" style="width: 50%">
                 <div class="weui_grid_icon">
                   <i class="icon-yen"></i>
                 </div>
                 <p class="weui_grid_label">红包</p>
               </a>
-              <a href="javascript:;" class="weui_grid waves-effect waves-light" style="width: 50%">
+              <a href="#question" class="weui_grid waves-effect waves-light" style="width: 50%">
                 <div class="weui_grid_icon">
                   <i class="icon-edit"></i>
                 </div>
@@ -69,13 +74,13 @@
               </a>
             </div>
             <div class="weui_grids">
-              <a href="javascript:;" class="weui_grid waves-effect waves-light" style="width: 50%">
+              <a href="#description" class="weui_grid waves-effect waves-light" style="width: 50%">
                 <div class="weui_grid_icon">
                   <i class="icon-chat"></i>
                 </div>
                 <p class="weui_grid_label">留言</p>
               </a>
-              <a href="javascript:;" class="weui_grid waves-effect waves-light" style="width: 50%">
+              <a href="#" class="weui_grid waves-effect waves-light" style="width: 50%">
                 <div class="weui_grid_icon">
                   <i class="icon-gift"></i>
                 </div>
@@ -83,13 +88,13 @@
               </a>        
             </div>
             <div class="weui_grids">
-              <a href="javascript:;" class="weui_grid waves-effect waves-light" style="width: 50%">
+              <a href="#settings" class="weui_grid waves-effect waves-light" style="width: 50%">
                 <div class="weui_grid_icon">
                   <i class="icon-cog"></i>
                 </div>
                 <p class="weui_grid_label">设置</p>
               </a>
-              <a href="#about" class="weui_grid waves-effect waves-light" style="width: 50%">
+              <a href="#info" class="weui_grid waves-effect waves-light" style="width: 50%">
                 <div class="weui_grid_icon">
                   <i class="icon-info"></i>
                 </div>
@@ -126,7 +131,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <textarea id="question-code" class="materialize-textarea"></textarea>
-                  <label class="label-text" for="hongbao-code">点击填写题目内容</label>
+                  <label class="label-text" for="question-code">点击填写题目内容</label>
                 </div>
               </div>
               <div class="row">
@@ -218,7 +223,7 @@
               <span class="card-title"><i class="icon-cog prefix"></i>设置</span>
               <div class="row">
                 <p class="range-field">
-                  <label for="settings-value">设置红包有效时间：单位／小时</label> 
+                  <label for="settings-value">滑块设置红包有效时间：单位／小时</label> 
                   <input id="settings-value" type="range" id="test5" min="0" max="72" />
                 </p>
               </div>
