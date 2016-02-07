@@ -5,7 +5,7 @@ function mgDB( id ) {
 	this.id = id;
 	this.mgClient = mongodb.MongoClient;
 	// certain database
-	this.mongoUri = 'mongodb://localhost:27017/ucav';
+	this.mongoUri = 'mongodb://localhost:27017/leihou';
 }
 
 /** insert method **/
