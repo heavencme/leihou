@@ -215,6 +215,17 @@
   color: yellow;
 }
 
+#send-alson {
+    position: absolute;
+    margin-top: -25px;
+    margin-left: -25px;
+    text-align: center;
+}
+
+#send-alson i {
+  font-size: 2.4em;
+}
+
 /* ripple effects */
 .ripple {
   position: absolute;

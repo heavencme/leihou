@@ -1,27 +1,45 @@
 (function($){
 /* start */
 
-/* index modal effect*/
-$('.modal-trigger').leanModal();
-
-/*
+/* modal options */
 $('.modal-trigger').leanModal({
-      dismissible: true, // Modal can be dismissed by clicking outside of the modal
-      opacity: .5, // Opacity of modal background
-      in_duration: 300, // Transition in duration
-      out_duration: 200, // Transition out duration
-      ready: function() { console.log('Ready'); }, // Callback for Modal open
-      complete: function() { console.log('Closed'); } // Callback for Modal close
+    dismissible: true, // Modal can be dismissed by clicking outside of the modal
+    opacity: .5, // Opacity of modal background
+    in_duration: 200, // Transition in duration
+    out_duration: 100, // Transition out duration
+    ready: function() { // Callback for Modal open
+        console.log(this);
+
+    }, 
+    complete: function() { // Callback for Modal close
+        console.log('Closed'); 
+    } 
+});
+
+/*modal content submit */
+$('#modal-bug-submit').click(function(e){
+    if( ! textLenValidate('modal-bug-text', 200) ) {
+        return;
     }
-);
-*/
+
+    $.ajax({
+        url: "/hongbao/report",
+        method: "POST",
+        data: { 
+            data:  escape( $('#modal-bug-text').val() );
+        },
+        success: {
+            $('#modal-bug').closeModal();
+        }
+    });
+});
 
 /* ripple effect */
 $(".ripple-btn").click(addRippleEffect);
 function addRippleEffect(e) {
     var target = e.target;
     if (target.tagName.toLowerCase() !== 'div') {
-      return ;
+        return ;
     }
     var rect = target.getBoundingClientRect();
     var ripple = target.querySelector('.ripple');
@@ -40,7 +58,37 @@ function addRippleEffect(e) {
     return false;
 }
 
+inputLenCount(ipnutId, outputId, maxLen)
 
+
+/* Common functions */
+
+/* validate text length */
+function textLenValidate(tarId, len) {
+    var tarStr = $('#'+tarId).val();
+    if (tarStr.length <= len) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+/* input len count */
+function inputLenCount(ipnutId, outputId, maxLen) {
+    var outObj = $('#'+outputId);
+    var inObj = $('#'+ipnutId);
+
+    inObj.keyup(function(){
+        var inLen = inObj.val().length;
+        
+        if (inLen > maxLen) {
+            outObj.css( "color", "red" );
+        }
+        outObj.text(inLen + "/" + maxLen);
+
+    });
+}
 
 /** end **/
 })(jQuery);
