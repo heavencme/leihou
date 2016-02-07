@@ -28,7 +28,7 @@ $('#modal-bug-submit').click(function(e){
         data: { 
             data: 'test'
         },
-        success: {
+        success: function(){
             $('#modal-bug').closeModal();
         }
     });
