@@ -11,6 +11,7 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "express-session": ">=1.0.4",
+    "generate-key": "0.0.6",
     "jade": "~1.11.0",
     "jquery-weui": "^0.3.1",
     "mongodb": ">=1.4",

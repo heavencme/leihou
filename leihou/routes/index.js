@@ -2,6 +2,8 @@ var express = require('express');
 var events = require( 'events' );
 // module of mongodb
 var mgDB = require( '../database/mgDB' );
+var randStr = require("generate-key");
+
 var router = express.Router();
 /**init a object of mongodb**/
 var mgdb = new mgDB( 1 );
@@ -45,15 +47,52 @@ router.get('/hongbao', function(req, res, next) {
 router.post('/hongbao/set', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
     console.log(req.body.data);
+    
+    var reqData = req.body.data;
+    var windowHash = randStr.generateKey(8);
+    var windowLocation = randStr.generateKey(8);
+    
+    reqData['val_answear_1'] = randStr.generateKey(4);
+    reqData['val_answear_2'] = randStr.generateKey(4);
+     
+ 
+    // write file syn
+    var fs = require('fs')
+    fs.readFileSync(../public/tpl.html, 'utf8', function (err,data) {
+        if (err) {
+            return console.log(err);
+        }
+        
+        var result = data;
+        for (var idx in reqData) {
+            result = result.replace(/{{description_name}}/g, 'replacement');
+            
+        }
+
+
+        fs.writeFileSync(someFile, result, 'utf8', function (err) {
+            if (err) return console.log(err);
+        });
+    });  
+     
     res.json({
-        location: 'wangbin',
-        hash: '345234234'
+        location: windowLocation,
+        hash: windowHash
     });
     //mgdb.insert( dataEvents, 'insert_test', 'hongbao', docArr );    
 
 });
 
 router.post('/hongbao/report', function(req, res, next) {
+    var ua = req.headers['user-agent'].toLowerCase();
+    console.log(ua);
+    var now = Date();
+    //console.log(req.body.data); 
+    mgdb.insert( dataEvents, 'insert_test', 'report',  {time: now, text:req.body.data, userAgent:ua});   
+    res.json({data: 'received'});
+});
+
+router.post('/hongbao/check', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
     console.log(ua);
     var now = Date();
