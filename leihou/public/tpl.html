@@ -7,7 +7,7 @@
     <link type="text/css" rel="stylesheet" href="static/css/materialize.css"  media="screen,projection"/>
     <link rel="stylesheet" href="static/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>来自王杉杉的雷猴红包</title>
+    <title>来自{{description_name}}的雷猴红包</title>
   </head>
   <body class="bg-patter">
     <img src="static/img/preview.png" style="width:0px;height:0px;overflow:hidden;position:fixed;" >
@@ -17,25 +17,25 @@
           <i class="icon-gift"></i>
         </a>
         <div class="card-title z-depth-5">
-          <div id="sender-from">王杉杉</div>
+          <div id="sender-from">{{description_name}}</div>
           <div class="send-msg">给您发了支付宝红包</div>
           <a id="show-me-ur-money-btn" href="#money-trick" class="btn-floating btn-large waves-effect waves-light center"><i class="icon-money yellow darken-3"></i></a>
           <div id="money-trick" class="modal modal-fixed-footer">
             <form>
               <div class="modal-content input-field col s12">
-                王杉杉问：
+                {{description_name}}问：
                 <p class="hongbao-question">
-                  那首是歌手白岩松唱的歌
+                  {{question_code}}
                 </p>
                 <p class="hongbao-answear">
                   <form action="#">
                     <p>
                       <input name="group1" type="radio" id="test1" />
-                      <label for="test1">勇敢的心</label>
+                      <label for="test1">{{answear_a}}</label>
                     </p>
                     <p>
                       <input name="group1" type="radio" id="test2" />
-                      <label for="test2">我心永恒</label>
+                      <label for="test2">{{answear_b}}</label>
                     </p>
                   </form>
                 </p>
