@@ -74,7 +74,7 @@ $('#send-hongbao').click(function(){
         },
         success: function(ret){
             console.log(ret);
-            //window.location = '/hongbao.html#' + ret.hash;
+            window.location = '/hongbao.html#' + ret.hash;
         }
     });
 });
