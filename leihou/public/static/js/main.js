@@ -26,13 +26,15 @@ $('#modal-bug-submit').click(function(e){
         url: "/hongbao/report",
         method: "POST",
         data: { 
-            data: 'test'
+            data: $('#modal-bug-text').val()
         },
         success: function(){
             $('#modal-bug').closeModal();
         }
     });
 });
+
+
 
 /* ripple effect */
 $(".ripple-btn").click(addRippleEffect);
