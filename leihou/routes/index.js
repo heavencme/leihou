@@ -16,5 +16,12 @@ router.post('/hongbao', function(req, res, next) {
 
 });
 
+router.post('/hongbao/report', function(req, res, next) {
+    var ua = req.headers['user-agent'].toLowerCase();
+    console.log(ua);
+    console.log(req.body);    
+    res.json({data: 'received'});
+});
+
 
 module.exports = router;
