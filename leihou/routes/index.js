@@ -2,7 +2,6 @@ var express = require('express');
 var events = require( 'events' );
 // module of mongodb
 var mgDB = require( '../database/mgDB' );
-
 var router = express.Router();
 /**init a object of mongodb**/
 var mgdb = new mgDB( 1 );
@@ -45,7 +44,11 @@ router.get('/hongbao', function(req, res, next) {
 
 router.post('/hongbao/set', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
-    console.log(req.body);
+    console.log(req.body.data);
+    res.json({
+        location: 'wangbin',
+        hash: '345234234'
+    });
     //mgdb.insert( dataEvents, 'insert_test', 'hongbao', docArr );    
 
 });
@@ -53,8 +56,9 @@ router.post('/hongbao/set', function(req, res, next) {
 router.post('/hongbao/report', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
     console.log(ua);
-    //console.log(req.body); 
-    mgdb.insert( dataEvents, 'insert_test', 'report',  {d:"data"});   
+    var now = Date();
+    //console.log(req.body.data); 
+    mgdb.insert( dataEvents, 'insert_test', 'report',  {time: now, text:req.body.data, userAgent:ua});   
     res.json({data: 'received'});
 });
 
