@@ -58,8 +58,11 @@
 .icon-music:before { content: '\e800'; } /* '' */
 .icon-home:before { content: '\e801'; } /* '' */
 .icon-weibo:before { content: '\e802'; } /* '' */
+.icon-plus:before { content: '\e803'; } /* '' */
+.icon-minus:before { content: '\e804'; } /* '' */
 .icon-bug:before { content: '\e805'; } /* '' */
 .icon-lock:before { content: '\e806'; } /* '' */
+.icon-paper-plane-empty:before { content: '\e807'; } /* '' */
 .icon-lock-open:before { content: '\e808'; } /* '' */
 .icon-wechat:before { content: '\e809'; } /* '' */
 .icon-pencil:before { content: '\e80a'; } /* '' */
@@ -84,7 +87,6 @@
 .icon-edit:before { content: '\e822'; } /* '' */
 .icon-android:before { content: '\e823'; } /* '' */
 .icon-info:before { content: '\e824'; } /* '' */
-
 
 
 /* style */
@@ -120,13 +122,13 @@
 }
 
 #lh-nav-btn #nav-top a {
-  font-size: 34px;
   color: #fff;
+  text-align: center;
+
 }
 
 #lh-nav-btn .nav-wrapper a i {
-  font-size: 34px;
-  line-height: 40px;
+  
 }
 
 #lh-nav-btn .nav-wrapper #bug-report-area a i {
@@ -138,11 +140,16 @@
   font-size: 2em;
   margin-left: auto;
   margin-right: auto;
+  transition: transform 0.5s ease-out;
+}
+
+#lh-logo:active {
+    transform: rotateZ(360deg);
 }
 
 #lh-nav-btn-bug {
-  margin-top: 1em;
-  margin-right: 1em;
+  margin-top: 28px;
+  margin-right: 10px;
 }
 
 #modal-bug {
@@ -207,6 +214,25 @@
 #card-title {
   color: yellow;
 }
+
+/* ripple effects */
+.ripple {
+  position: absolute;
+  background: rgba(0,0,0,.15);
+  border-radius: 100%;
+  transform: scale(0);
+  pointer-events: none;
+}
+.ripple.show {
+  animation: ripple .75s ease-out;
+}
+@keyframes ripple {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
 
 /* weui */
 
