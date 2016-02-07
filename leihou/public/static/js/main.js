@@ -35,11 +35,11 @@ $('.modal-trigger').leanModal({
     in_duration: 200, // Transition in duration
     out_duration: 100, // Transition out duration
     ready: function() { // Callback for Modal open
-        console.log(this);
+        //console.log(this);
 
     }, 
     complete: function() { // Callback for Modal close
-        console.log('Closed'); 
+        //console.log('Closed'); 
     } 
 });
 
@@ -75,6 +75,37 @@ $('#send-hongbao').click(function(){
         success: function(ret){
             console.log(ret);
             window.location = '/bao/' + ret.location + '.html#' + ret.hash;
+        }
+    });
+});
+
+checkUserFresh();
+
+/* check and show hongbao code */
+$('#hongbao-check-btn').click(function(){
+    clientData = {
+        clientHash: (window.location.hash).replace(/#/g, '')
+    };
+
+    var userChoice = $('input[type="radio"][name="answear"]:checked').val();
+
+    if (userChoice) {
+        clientData['clientRet'] = userChoice;
+    }
+    else {
+        alert("请先点击，选择其中一个答案");
+        return;
+    }
+
+    $.ajax({
+        url: "/hongbao/check",
+        method: "POST",
+        data: clientData,
+        success: function(ret){
+            console.log(ret);
+            if (ret.result != 'ok') {
+                setCookie('miss', clientData.clientHash, 3);
+            }
         }
     });
 });
@@ -156,6 +187,38 @@ function sendInfoValidate() {
     }
 }
 
+/* set cookie and its expiredays*/
+function setCookie(c_name,c_value,expiredays) {
+    
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + expiredays);
+    document.cookie = c_name + "=" + escape(c_value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString()) + ";path=/;domain=.kongzhong.com;secure";
+}
+
+/* get cookie */
+function getCookie(c_name) {
+    if(document.cookie.length > 0) {
+        var c_start = document.cookie.indexOf(c_name + "="); 
+        if(c_start != -1) {
+            c_start = c_start + c_name.length + 1; 
+            var c_end = document.cookie.indexOf(";",c_start);
+            if(c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+}
+
+function checkUserFresh() {
+    if( getCookie('miss') == (window.location.hash).replace(/#/g, '') ) {
+        var preClass = $('#show-me-ur-money-btn').attr('class');
+        $('#show-me-ur-money-btn').attr( 'class', (preClass + 'disabled') );
+        $('#show-me-ur-money-btn').text('<i class=\"icon-lock yellow darken-3\"></i>');
+    }
+    return;
+}
 
 /** end **/
 })(jQuery);
