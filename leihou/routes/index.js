@@ -53,7 +53,8 @@ router.post('/hongbao/set', function(req, res, next) {
 router.post('/hongbao/report', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
     console.log(ua);
-    //console.log(req.body);    
+    //console.log(req.body); 
+    mgdb.insert( dataEvents, 'insert_test', 'report',  {d:"data"});   
     res.json({data: 'received'});
 });
 
