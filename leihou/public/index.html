@@ -24,7 +24,7 @@
                 <textarea id="modal-bug-text" class="materialize-textarea"></textarea>
               </div>
               <div class="modal-footer">
-                <label id="modal-bug-warning"></label>
+                <label id="modal-bug-text-warning"></label>
                 <a href="#!" id="modal-bug-submit" class="btn-flat btn waves-effect waves-light red lighten-2 "><i class="icon-ok"></i></a>
               </div>
             </form>  
@@ -78,7 +78,7 @@
                 </div>
                 <p class="weui_grid_label">留言</p>
               </a>
-              <a id="send-hongbao" href="hongbao.html" class="weui_grid waves-effect waves-light" style="width: 50%">
+              <a id="send-hongbao" href="#" class="weui_grid waves-effect waves-light" style="width: 50%">
                 <div class="weui_grid_icon">
                   <i class="icon-gift"></i>
                 </div>
@@ -115,9 +115,10 @@
               <span class="card-title"><i class="icon-yen prefix"></i>红包</span>
               <div class="row">
                 <div class="input-field col s6">
-                  <input id="hongbao-code" type="text" class="validate">
+                  <input id="hongbao-code" type="number" class="validate">
                   <label for="hongbao-code">支付宝红包口令</label>
                 </div>
+                <label id="hongbao-code-warning"></label>
               </div>
             </div>
           </div>
@@ -131,6 +132,7 @@
                   <textarea id="question-code" class="materialize-textarea"></textarea>
                   <label class="label-text" for="question-code">点击填写题目内容</label>
                 </div>
+                <label id="question-code-warning"></label>
               </div>
               <div class="row">
                 <table>
@@ -149,12 +151,13 @@
                           <input id="answear-a" type="text" class="validate">
                           <label class="label-text" for="answear-a">答案A</label>
                         </div>
+                        <label id="answear-a-warning"></label>
                       </td>
                       <td>
                         <div class="switch">
                           <label class="label-text">
                             错
-                            <input type="checkbox">
+                            <input id="answear-a-right" type="checkbox" checked="checked">
                             <span class="lever"></span>
                             对
                           </label>
@@ -168,12 +171,13 @@
                           <input id="answear-b" type="text" class="validate">
                           <label class="label-text" for="answear-b">答案B</label>
                         </div>
+                        <label id="answear-b-warning"></label>
                       </td>
                       <td>
                         <div class="switch">
                           <label class="label-text">
                             错
-                            <input type="checkbox">
+                            <input id="answear-a-right" type="checkbox">
                             <span class="lever"></span>
                             对
                           </label>
@@ -195,6 +199,7 @@
                   <input id="description-name" type="text" class="validate">
                   <label for="description-name">尊姓大名</label>
                 </div>
+                <label id="description-name-warning"></label>
               </div>
               <div class="row">
                 <div class="input-field col s10">
@@ -203,6 +208,7 @@
                     <i class="icon-emo-happy"></i>答对时对Ta说：
                   </label>
                 </div>
+                <label id="description-right-warning"></label>
               </div>
               <div class="row">
                 <div class="input-field col s10">
@@ -211,6 +217,7 @@
                     <i class="icon-emo-unhappy"></i>答错时对Ta说：
                   </label>
                 </div>
+                <label id="description-wrong-warning"></label>
               </div>
             </div>
           </div>
