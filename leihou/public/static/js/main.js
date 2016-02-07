@@ -26,7 +26,7 @@ $('#modal-bug-submit').click(function(e){
         url: "/hongbao/report",
         method: "POST",
         data: { 
-            data:  escape( $('#modal-bug-text').val() )
+            data: 'test'
         },
         success: {
             $('#modal-bug').closeModal();
