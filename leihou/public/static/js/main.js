@@ -58,8 +58,6 @@ function addRippleEffect(e) {
     return false;
 }
 
-inputLenCount(ipnutId, outputId, maxLen)
-
 
 /* Common functions */
 
