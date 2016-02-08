@@ -106,11 +106,11 @@ $('#hongbao-check-btn').click(function(){
         success: function(ret){
             console.log(ret);
             console.log(userChoice);
-            if (ret.result == 'ok' && ret.key == userChoice ) {
+            if (ret.key == userChoice ) {
                 var $toastContent = $('<span class=\'green\'>' 
                     + ret.description_right + '</span>');
                 Materialize.toast($toastContent, 3000);
-                if( !$('#boxOpen') ) {
+                if( 0 > $('#boxOpen').length ) {
                   $('#hongbao-card-content').prepend('<br><p id="boxOpen">' + ret.box + '</p>');
                   $('#show-me-ur-money-btn').html("<i class=\"icon-lock-open yellow darken-3\"></i>");
                 }
@@ -128,7 +128,7 @@ $('#hongbao-check-btn').click(function(){
             }
             else {
                 var $toastContent = $('<span class=\'green\'>' 
-                    + '呃……出错了' + '</span>');
+                    + '呃……红包不是发你的？' + '</span>');
                 Materialize.toast($toastContent, 3000);
             }
         }
@@ -180,6 +180,8 @@ function inputLenCount(ipnutId, maxLen) {
     var outObj = $('#'+ipnutId+'-warning');
     var inObj = $('#'+ipnutId);
 
+    
+
     inObj.keyup(function(){
         var inLen = inObj.val().length;
         //console.log('out: '+outObj.text());
@@ -191,7 +193,7 @@ function inputLenCount(ipnutId, maxLen) {
             g_input[ ipnutId.replace(/-/g,"_") ] = inObj.val();
         }
         outObj.text("已输入" + inLen + "/" + maxLen);
-        console.log(g_input);
+        //console.log(g_input);
 
     });
 
@@ -200,8 +202,8 @@ function inputLenCount(ipnutId, maxLen) {
 
 /* send-hongbao validate */
 function sendInfoValidate() {
-    g_input['answear_a_ok'] = ( 'checked' == $('#answear-a-right').val() ) ? true : false;
-    g_input['answear_b_ok'] = ( 'checked' == $('#answear-b-right').val() ) ? true : false;
+    g_input['answear_a_ok'] = ( true == $('#answear-a-right').prop("checked") ) ? true : false;
+    g_input['answear_b_ok'] = ( true == $('#answear-b-right').prop("checked") ) ? true : false;
 
     if ( g_input['answear_a_ok'] || g_input['answear_b_ok'] ) {
         return;
