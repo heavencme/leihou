@@ -34,7 +34,7 @@ inputLenCount('description-wrong', 20);
 $('.modal-trigger').leanModal({
     dismissible: true, // Modal can be dismissed by clicking outside of the modal
     opacity: .5, // Opacity of modal background
-    in_duration: 200, // Transition in duration
+    in_duration: 50, // Transition in duration
     out_duration: 100, // Transition out duration
     ready: function() { // Callback for Modal open
         //console.log(this);
@@ -81,8 +81,8 @@ $('#send-hongbao').click(function(){
     });
 });
 
-/* check and show hongbao code */
-$('#hongbao-check-btn').click(function(e){
+/* trigger hongbao test*/
+$('#show-me-ur-money-btn').click(function(){
     /*redirect hash*/
     window.location.hash = '#' + g_initHash;
 
@@ -90,9 +90,17 @@ $('#hongbao-check-btn').click(function(e){
     var target = e.target;
     var isLocked = target.querySelector('.disabled') || 
         ( getCookie('miss') == (window.location.hash).replace(/#/g, '') ); 
+    
     if (isLocked) {
         return;
     }
+    else {
+        $('#money-trick').openModal();;
+    }
+});
+
+/* check and show hongbao code */
+$('#hongbao-check-btn').click(function(e){
 
     clientData = {
         clientHash: g_initHash
@@ -134,7 +142,7 @@ $('#hongbao-check-btn').click(function(e){
                 
                 setCookie('miss', clientData.clientHash, 3);
 
-                $('#show-me-ur-money-btn').addClass('disabled modal-close');
+                $('#show-me-ur-money-btn').addClass('disabled');
                 $('#show-me-ur-money-btn').html("<i class=\"icon-lock yellow darken-3\"></i>");
             }
             else {
