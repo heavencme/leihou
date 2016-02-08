@@ -58,6 +58,9 @@ $('#modal-bug-submit').click(function(e){
     },
     success: function(){
         $('#modal-bug').closeModal();
+    },
+    error: function(e){
+        alert('呃……服务器被我关了');
     }
   });
 });
@@ -74,6 +77,9 @@ $('#send-hongbao').click(function(){
         success: function(ret){
             
             window.location = '/bao/' + ret.location + '.html#' + ret.hash;
+        },
+        error: function(e){
+            alert('呃……服务器被我关了');
         }
     });
 });
@@ -147,6 +153,9 @@ $('#hongbao-check-btn').click(function(e){
                     + '呃……红包不是发你的？' + '</span>');
                 Materialize.toast($toastContent, 3000);
             }
+        },
+        error: function(e){
+            alert('呃……服务器被我关了');
         }
     });
 
