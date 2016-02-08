@@ -82,7 +82,7 @@ $('#send-hongbao').click(function(){
 });
 
 /* trigger hongbao test*/
-$('#show-me-ur-money-btn').click(function(){
+$('#show-me-ur-money-btn').click(function(e){
     /*redirect hash*/
     window.location.hash = '#' + g_initHash;
 
@@ -100,7 +100,7 @@ $('#show-me-ur-money-btn').click(function(){
 });
 
 /* check and show hongbao code */
-$('#hongbao-check-btn').click(function(e){
+$('#hongbao-check-btn').click(function(){
 
     clientData = {
         clientHash: g_initHash
