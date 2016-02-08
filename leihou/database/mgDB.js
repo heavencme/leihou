@@ -47,7 +47,7 @@ mgDB.prototype.insert = function( event, act, collection, docArr ) {
 }
 
 /** find method **/
-mgDB.prototype.find = function( event, act, collection, query, fields, option ){
+mgDB.prototype.find = function( event, act, collection, query, fields, option, responseObj ){
 	// connect to database
 	this.mgClient.connect( this.mongoUri, function(err, db) {
 		if( err ) {
@@ -73,6 +73,7 @@ mgDB.prototype.find = function( event, act, collection, query, fields, option ){
 
 				// closure make variables: act, event accessible to callback function
 				resultObj.action = act;
+				resultObj['responseObj'] = responseObj;
 				event.emit( 'ready', resultObj );
 
 				// close the connect

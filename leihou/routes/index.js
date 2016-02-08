@@ -52,12 +52,14 @@ router.post('/hongbao/set', function(req, res, next) {
     var windowHash = randStr.generateKey(8);
     var windowLocation = randStr.generateKey(8);
     var recData = {};
-    recData[windowHash] = req.body.data.answear_a_ok == true ? req.body.data.
     
     reqData['val_answear_1'] = randStr.generateKey(4);
     reqData['val_answear_2'] = randStr.generateKey(4);
      
- 
+    recData['windowHash'] = windowHash;
+    recData['answearHash'] = reqData['answear_a_ok'] == true ? reqData['val_answear_1'] : reqData['val_answear_2'];
+    recData['description_name'] = reqData['description_name'];
+
     // write file syn
     var fs = require('fs')
     fs.readFileSync('../public/tpl.html', 'utf8', function (err,data) {
@@ -81,6 +83,7 @@ router.post('/hongbao/set', function(req, res, next) {
         location: windowLocation,
         hash: windowHash
     });
+
     mgdb.insert( dataEvents, 'insert_test', 'hongbao', );    
 
 });
@@ -97,10 +100,10 @@ router.post('/hongbao/report', function(req, res, next) {
 router.post('/hongbao/check', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
     console.log(ua);
-    var now = Date();
-    //console.log(req.body.data); 
-    mgdb.insert( dataEvents, 'insert_test', 'report',  {time: now, text:req.body.data, userAgent:ua});   
-    res.json({data: 'received'});
+    var findObj = {
+        windowHash: req.body.data.clientHash
+    };
+    mgdb.find( dataEvents, 'find_test', 'hongbao', findObj, {}, {}, res );
 });
 
 
