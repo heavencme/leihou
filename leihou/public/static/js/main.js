@@ -92,7 +92,7 @@ $('#show-me-ur-money-btn').click(function(){
     
     if (isLocked) {
         /* stop event bubble or it will cause #hongbao-check-btn').click */
-        return false;
+        return;
     }
     else {
         $('#money-trick').openModal();;
