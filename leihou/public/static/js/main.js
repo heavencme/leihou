@@ -16,6 +16,8 @@ var g_input = {
   description_wrong: ''
 }; 
 
+var g_initHash = (window.location.hash).replace(/#/g, '');
+
 /* input length count */
 inputLenCount('modal-bug-text', 200);
 inputLenCount('hongbao-code', 10);
@@ -82,7 +84,7 @@ checkUserFresh();
 /* check and show hongbao code */
 $('#hongbao-check-btn').click(function(){
     clientData = {
-        clientHash: (window.location.hash).replace(/#/g, '')
+        clientHash: g_initHash
     };
 
     var userChoice = $('input[type="radio"][name="answear"]:checked').val();
