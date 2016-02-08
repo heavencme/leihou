@@ -18,11 +18,13 @@ function getData( d ){
 	switch( d.database ){
 		case 'mongodb':
 			if( 'insert_test' == d.action ){
-				console.log( d.data );
+				//console.log( d.data );
+                writeLog( 'database', d.data );
 			}
 			else if( 'find_test' == d.action ) {
 				
-                console.log( d.data );
+                //console.log( d.data );
+                writeLog('database', d.data);
                 if (d.data.length < 1) {
                     d.responseObj.json({ result: 'failed'}); 
                     return;   
@@ -62,7 +64,8 @@ function getData( d ){
 router.get('/hongbao', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
 
-    console.log(ua);
+    //console.log(ua);
+    writeLog( 'hongbao', ua );
 
     res.render('index', { title: 'Express' });
 });
@@ -77,7 +80,8 @@ router.post('/hongbao/set', function(req, res, next) {
         return;
     }
 
-    console.log(req.body);
+    //console.log(req.body);
+    writeLog( 'hongbao', req.body );
     
     var reqData = req.body;
     var windowHash = randStr.generateKey(8);
@@ -98,15 +102,14 @@ router.post('/hongbao/set', function(req, res, next) {
     var templatePath = 'public/tpl.html';
     var data = fs.readFileSync(templatePath, 'utf8');
         
-        console.log('read ok');
-       
         for (var idx in reqData) {
             var pt = new RegExp( '{{' + idx + '}}', "g" ); 
             data = data.replace( pt, reqData[idx] );
         }
         
         var filePath = 'public/bao/' + windowLocation + '.html';
-        console.log(filePath);
+        //console.log(filePath);
+        writeLog( 'hongbao', filePath );
         fs.writeFileSync(filePath, data);
      
     res.json({
@@ -125,7 +128,9 @@ router.post('/hongbao/report', function(req, res, next) {
         return;
     }
 
-    console.log(ua);
+    //console.log(ua);
+    writeLog( 'hongbao', req.body );
+
     var now = Date();
     //console.log(req.body.data); 
     mgdb.insert( dataEvents, 'insert_test', 'report',  {time: now, text:req.body.data, userAgent:ua});   
@@ -139,12 +144,19 @@ router.post('/hongbao/check', function(req, res, next) {
         return;
     }
 
-    console.log(ua);
+    //console.log(ua);
+    writeLog( 'hongbao', req.body );
     var findObj = {
         windowHash: req.body.clientHash
     };
     mgdb.find( dataEvents, 'find_test', 'hongbao', findObj, {}, {}, res );
 });
 
+function writeLog(fileName, data) {
+    var str = data.toString();
+    fs.appendFile('log/' + fileName + '.log', str + '\n', function (err) {
+        if (err) throw err;
+    });
+}
 
 module.exports = router;
