@@ -88,7 +88,7 @@ $('#hongbao-check-btn').click(function(){
     };
 
     var userChoice = $('input[type="radio"][name="answear"]:checked').val();
-
+    
     if (userChoice) {
         clientData['clientRet'] = userChoice;
     }
@@ -103,11 +103,30 @@ $('#hongbao-check-btn').click(function(){
         data: clientData,
         success: function(ret){
             console.log(ret);
-            if (ret.result != 'ok') {
+            console.log(userChoice);
+            if (ret.result == 'ok' && ret.key == userChoice ) {
+                var $toastContent = $('<span class=\'green\'>' 
+                    + ret.description_right + '</span>');
+                Materialize.toast($toastContent, 3000);
+
+                $('#hongbao-card-content').prepend('<br><p>' + ret.box + '</p>');
+                $('#show-me-ur-money-btn').text('<i class=\"icon-lock-open yellow darken-3\"></i>');
+                
+            }
+            else {
+                var $toastContent = $('<span class=\'green\'>' 
+                    + ret.description_wrong + '</span>');
+                Materialize.toast($toastContent, 3000);
+                
                 setCookie('miss', clientData.clientHash, 3);
+
+                $('#show-me-ur-money-btn').addClass('disabled');
+                $('#show-me-ur-money-btn').text('<i class=\"icon-lock yellow darken-3\"></i>');
             }
         }
     });
+
+    $('#money-trick').closeModal();
 });
 
 /* ripple effect */

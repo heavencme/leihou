@@ -23,18 +23,21 @@ function getData( d ){
 			}
 			else if( 'find_test' == d.action ) {
 				console.log( d.data );
-                                //console.log(d.responseObj);
-                                if ( d.data[0].answearHash ) {
-                                    d.responseObj.json({
-                                        result: 'ok',
-                                        key: d.data[0].answearHash
-                                    });
-                                }
-                                else {
-                                    d.responseObj.json({result: 'failed'});
-                                }
-                                 //console.log(d.responseObj);
-                                //console.log(d.responseObj);
+                //console.log(d.responseObj);
+                if ( d.data[0].answearHash ) {
+                    d.responseObj.json({
+                        result: 'ok',
+                        key: d.data[0].answearHash,
+                        box: d.data[0].hongbao_code,
+                        description_right: d.data[0].description_right,
+                        description_wrong: d.data[0].description_wrong
+                    });
+                }
+                else {
+                    d.responseObj.json({result: 'failed'});
+                }
+                 //console.log(d.responseObj);
+                //console.log(d.responseObj);
                                  
 
 			}
@@ -74,6 +77,7 @@ router.post('/hongbao/set', function(req, res, next) {
     recData['windowHash'] = windowHash;
     recData['answearHash'] = reqData['answear_a_ok'] == true ? reqData['val_answear_1'] : reqData['val_answear_2'];
     recData['description_name'] = reqData['description_name'];
+    recData['hongbao_code'] = reqData['hongbao_code'];
 
     // write file syn
     var templatePath = 'public/tpl.html';
