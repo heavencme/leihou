@@ -82,17 +82,17 @@ $('#send-hongbao').click(function(){
 });
 
 /* trigger hongbao test*/
-$('#show-me-ur-money-btn').click(function(){
+$('#show-me-ur-money-btn').click(function(e){
     /*redirect hash*/
     window.location.hash = '#' + g_initHash;
 
     /* gardian judge*/
-    var target = e.target;
     var isLocked = target.querySelector('.disabled') || 
         ( getCookie('miss') == (window.location.hash).replace(/#/g, '') ); 
     
     if (isLocked) {
-        return;
+        /* stop event bubble or it will cause #hongbao-check-btn').click */
+        return false;
     }
     else {
         $('#money-trick').openModal();;
