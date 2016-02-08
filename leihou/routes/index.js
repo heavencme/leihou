@@ -81,7 +81,7 @@ router.post('/hongbao/set', function(req, res, next) {
     }
 
     //console.log(req.body);
-    writeLog( 'hongbao', req.body );
+    writeLog('hongbao', ua);
     
     var reqData = req.body;
     var windowHash = randStr.generateKey(8);
@@ -129,7 +129,7 @@ router.post('/hongbao/report', function(req, res, next) {
     }
 
     //console.log(ua);
-    writeLog( 'hongbao', req.body );
+    writeLog('hongbao', ua);
 
     var now = Date();
     //console.log(req.body.data); 
@@ -145,7 +145,7 @@ router.post('/hongbao/check', function(req, res, next) {
     }
 
     //console.log(ua);
-    writeLog( 'hongbao', req.body );
+    writeLog('hongbao', ua);
     var findObj = {
         windowHash: req.body.clientHash
     };
@@ -153,8 +153,10 @@ router.post('/hongbao/check', function(req, res, next) {
 });
 
 function writeLog(fileName, data) {
-    var str = data.toString();
-    fs.appendFile('log/' + fileName + '.log', str + '\n', function (err) {
+    //var str = data.toString();
+    var now = Date();
+
+    fs.appendFile('log/' + fileName + '.log', now + ' |||| ' + data + '\n', function (err) {
         if (err) throw err;
     });
 }
