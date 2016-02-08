@@ -81,10 +81,19 @@ $('#send-hongbao').click(function(){
     });
 });
 
-checkUserFresh();
-
 /* check and show hongbao code */
-$('#hongbao-check-btn').click(function(){
+$('#hongbao-check-btn').click(function(e){
+    /*redirect hash*/
+    window.location.hash = '#' + g_initHash;
+
+    /* gardian judge*/
+    var target = e.target;
+    var isLocked = target.querySelector('.disabled') || 
+        ( getCookie('miss') == (window.location.hash).replace(/#/g, '') ); 
+    if (isLocked) {
+        return;
+    }
+
     clientData = {
         clientHash: g_initHash
     };
@@ -242,14 +251,6 @@ function getCookie(c_name) {
     return "";
 }
 
-function checkUserFresh() {
-    if( getCookie('miss') == (window.location.hash).replace(/#/g, '') ) {
-        var preClass = $('#show-me-ur-money-btn').attr('class');
-        $('#show-me-ur-money-btn').attr( 'class', (preClass + 'disabled') );
-        $('#show-me-ur-money-btn').text('<i class=\"icon-lock yellow darken-3\"></i>');
-    }
-    return;
-}
 
 /** end **/
 })(jQuery);
