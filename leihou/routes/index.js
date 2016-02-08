@@ -23,8 +23,20 @@ function getData( d ){
 			}
 			else if( 'find_test' == d.action ) {
 				console.log( d.data );
-                console.log(d.responseObj);
-                d.responseObj.json({result: 'ok'});
+                                //console.log(d.responseObj);
+                                if ( d.data[0].answearHash ) {
+                                    d.responseObj.json({
+                                        result: 'ok',
+                                        key: d.data[0].answearHash
+                                    });
+                                }
+                                else {
+                                    d.responseObj.json({result: 'failed'});
+                                }
+                                 //console.log(d.responseObj);
+                                //console.log(d.responseObj);
+                                 
+
 			}
 			else if( 'update_test' == d.action ) {
 				console.log( d.data );
@@ -100,7 +112,7 @@ router.post('/hongbao/check', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
     console.log(ua);
     var findObj = {
-        windowHash: req.body.data.clientHash
+        windowHash: req.body.clientHash
     };
     mgdb.find( dataEvents, 'find_test', 'hongbao', findObj, {}, {}, res );
 });
