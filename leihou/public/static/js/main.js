@@ -110,7 +110,7 @@ $('#hongbao-check-btn').click(function(){
                 var $toastContent = $('<span class=\'green\'>' 
                     + ret.description_right + '</span>');
                 Materialize.toast($toastContent, 3000);
-                if( 0 > $('#boxOpen').length ) {
+                if( 0 >= $('#boxOpen').length ) {
                   $('#hongbao-card-content').prepend('<br><p id="boxOpen">' + ret.box + '</p>');
                   $('#show-me-ur-money-btn').html("<i class=\"icon-lock-open yellow darken-3\"></i>");
                 }
