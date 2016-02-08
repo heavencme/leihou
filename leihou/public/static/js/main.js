@@ -82,7 +82,7 @@ $('#send-hongbao').click(function(){
 });
 
 /* trigger hongbao test*/
-$('#show-me-ur-money-btn').click(function(e){
+$('#show-me-ur-money-btn').click(function(){
     /*redirect hash*/
     window.location.hash = '#' + g_initHash;
 
