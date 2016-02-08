@@ -87,7 +87,7 @@ $('#show-me-ur-money-btn').click(function(){
     window.location.hash = '#' + g_initHash;
 
     /* gardian judge*/
-    var isLocked = $('#show-me-ur-money-btn').hasClass('disabled') || 
+    var isLocked = $('#show-me-ur-money-btn').hasClass('locked') || 
         ( getCookie('miss') == (window.location.hash).replace(/#/g, '') ); 
     
     if (isLocked) {
@@ -142,7 +142,7 @@ $('#hongbao-check-btn').click(function(e){
                 
                 setCookie('miss', clientData.clientHash, 3);
 
-                $('#show-me-ur-money-btn').addClass('disabled');
+                $('#show-me-ur-money-btn').addClass('locked');
                 $('#show-me-ur-money-btn').html("<i class=\"icon-lock yellow darken-3\"></i>");
             }
             else {
