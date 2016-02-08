@@ -74,6 +74,7 @@ router.post('/hongbao/set', function(req, res, next) {
             location: '',
             hash: ''
         });
+        return;
     }
 
     console.log(req.body);
@@ -121,6 +122,7 @@ router.post('/hongbao/report', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
     if ( ua.search(/micromessenger/) < 0 ) {
         res.json({data: 'received'});
+        return;
     }
 
     console.log(ua);
@@ -134,6 +136,7 @@ router.post('/hongbao/check', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
     if ( ua.search(/micromessenger/) < 0 ) {
         res.json({ result: 'failed'}); 
+        return;
     }
 
     console.log(ua);
