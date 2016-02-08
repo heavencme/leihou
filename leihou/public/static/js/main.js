@@ -67,7 +67,9 @@ $('#modal-bug-submit').click(function(e){
 
 /* validate and send hongbao */
 $('#send-hongbao').click(function(){
-    sendInfoValidate();
+    if ( ! sendInfoValidate() ) {
+        return;
+    }
     g_input['time'] = new Date().getTime();
 
     $.ajax({
@@ -133,7 +135,7 @@ $('#hongbao-check-btn').click(function(e){
 
                 /* open box for first time*/
                 if( 0 >= $('#boxOpen').length ) {
-                  $('#hongbao-card-content').prepend('<br><p id="boxOpen">' + ret.box + '</p>');
+                  $('#hongbao-card-content').prepend('<br><p id="boxOpen">红包口令: ' + ret.box + '</p>');
                   $('#show-me-ur-money-btn').html("<i class=\"icon-lock-open yellow darken-3\"></i>");
                 }
                 
@@ -227,18 +229,29 @@ function inputLenCount(ipnutId, maxLen) {
 
 /* send-hongbao validate */
 function sendInfoValidate() {
+    
+    /* chose valid answear */
     g_input['answear_a_ok'] = ( true == $('#answear-a-right').prop("checked") ) ? true : false;
     g_input['answear_b_ok'] = ( true == $('#answear-b-right').prop("checked") ) ? true : false;
 
     if ( g_input['answear_a_ok'] || g_input['answear_b_ok'] ) {
-        return;
+       
     }
     else {
         g_input['answear_a_ok'] = ( Math.random() > 0.5 );
         g_input['answear_b_ok'] = !g_input['answear_a_ok'];
-
-        return;  
     }
+
+    /* test not empty */
+    for (var idx in g_input) {
+        if ( 'isValid' != idx && 'modal_bug_text' != idx && g_input[idx].length == 0 ) {
+            window.location.hash = '#' + idx.replace(/_/g, '-');
+            return false;
+        }
+    }
+
+    return true;
+
 }
 
 /* set cookie and its expiredays*/
