@@ -84,7 +84,19 @@ $('#send-hongbao').click(function(){
 /* trigger hongbao test*/
 $('#show-me-ur-money-btn').click(function(){
     /*redirect hash*/
+    window.location.hash = '#' + g_initHash;
+
+    /* gardian judge*/
+    var isLocked = $('#show-me-ur-money-btn').hasClass('disabled') || 
+        ( getCookie('miss') == (window.location.hash).replace(/#/g, '') ); 
     
+    if (isLocked) {
+        /* stop event bubble or it will cause #hongbao-check-btn').click */
+        return false;
+    }
+    else {
+        $('#money-trick').openModal();;
+    }
 });
 
 /* check and show hongbao code */
