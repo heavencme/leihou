@@ -87,6 +87,7 @@ $('#show-me-ur-money-btn').click(function(e){
     window.location.hash = '#' + g_initHash;
 
     /* gardian judge*/
+    var target = e.target;
     var isLocked = target.querySelector('.disabled') || 
         ( getCookie('miss') == (window.location.hash).replace(/#/g, '') ); 
     
