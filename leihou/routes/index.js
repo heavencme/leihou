@@ -71,7 +71,7 @@ router.post('/hongbao/set', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
     if ( ua.search(/micromessenger/) < 0 ) {
         res.json({
-            location: '',
+            location: 'haha',
             hash: ''
         });
         return;
