@@ -106,17 +106,19 @@ $('#hongbao-check-btn').click(function(){
         success: function(ret){
             console.log(ret);
             console.log(userChoice);
-            if (ret.key == userChoice ) {
+            if (ret.result == 'ok' && ret.key == userChoice) {
                 var $toastContent = $('<span class=\'green\'>' 
                     + ret.description_right + '</span>');
                 Materialize.toast($toastContent, 3000);
+
+                /* open box for first time*/
                 if( 0 >= $('#boxOpen').length ) {
                   $('#hongbao-card-content').prepend('<br><p id="boxOpen">' + ret.box + '</p>');
                   $('#show-me-ur-money-btn').html("<i class=\"icon-lock-open yellow darken-3\"></i>");
                 }
                 
             }
-            else if (ret.result == 'ok'){
+            else if (ret.result == 'ok' && ret.key != userChoice){
                 var $toastContent = $('<span class=\'green\'>' 
                     + ret.description_wrong + '</span>');
                 Materialize.toast($toastContent, 3000);
