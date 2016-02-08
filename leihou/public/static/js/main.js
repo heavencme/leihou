@@ -68,12 +68,14 @@ $('#send-hongbao').click(function(){
     sendInfoValidate();
     g_input['time'] = new Date().getTime();
 
+    console.log(g_input);
+
     $.ajax({
         url: "/hongbao/set",
         method: "POST",
         data: g_input,
         success: function(ret){
-            console.log(ret);
+            //console.log(ret);
             window.location = '/bao/' + ret.location + '.html#' + ret.hash;
         }
     });
