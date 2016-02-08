@@ -91,7 +91,8 @@ $('#show-me-ur-money-btn').click(function(){
         ( getCookie('miss') == (window.location.hash).replace(/#/g, '') ); 
     
     if (isLocked) {
-        /* stop event bubble or it will cause #hongbao-check-btn').click */
+      
+        $('#show-me-ur-money-btn').html("<i class=\"icon-lock yellow darken-3\"></i>");
         return;
     }
     else {
