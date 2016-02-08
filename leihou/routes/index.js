@@ -22,7 +22,12 @@ function getData( d ){
 				console.log( d.data );
 			}
 			else if( 'find_test' == d.action ) {
-				console.log( d.data );
+				
+                console.log( d.data );
+                if (d.data.length < 1) {
+                    d.responseObj.json({ result: 'failed'}); 
+                    return;   
+                } 
                 //console.log(d.responseObj);
                 if ( d.data[0].answearHash ) {
                     d.responseObj.json({
