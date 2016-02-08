@@ -23,6 +23,8 @@ function getData( d ){
 			}
 			else if( 'find_test' == d.action ) {
 				console.log( d.data );
+                console.log(d.responseObj);
+                d.responseObj.json({result: 'ok'});
 			}
 			else if( 'update_test' == d.action ) {
 				console.log( d.data );
