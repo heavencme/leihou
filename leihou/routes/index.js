@@ -80,14 +80,7 @@ router.post('/hongbao/set', function(req, res, next) {
     reqData['val_answear_2'] = randStr.generateKey(4);
      
     recData['windowHash'] = windowHash;
-    recData['answearHash'] = reqData['answear_a_ok'] == true ? reqData['val_answear_1'] : reqData['val_answear_2'];
-
-    console.log('a_hash: ' + reqData['val_answear_1'] );
-    console.log('b_hash: ' + reqData['val_answear_2'] );
-    console.log('hash: ' + recData['answearHash'] ); 
-    console.log('==  ' + (reqData['answear_a_ok'] == true) );
-
-
+    recData['answearHash'] = reqData['answear_a_ok'] == 'true' ? reqData['val_answear_1'] : reqData['val_answear_2'];
     recData['description_name'] = reqData['description_name'];
     recData['hongbao_code'] = reqData['hongbao_code'];
     recData['description_right'] = reqData['description_right'];
