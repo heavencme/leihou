@@ -15,7 +15,6 @@ dataEvents.on( 'ready', getData );
 
 /**process the data got from database query results**/
 function getData( d ){
-
 	switch( d.database ){
 		case 'mongodb':
 			if( 'insert_test' == d.action ){
@@ -28,6 +27,7 @@ function getData( d ){
                     d.responseObj.json({ result: 'failed'}); 
                     return;   
                 } 
+                
                 //console.log(d.responseObj);
                 if ( d.data[0].answearHash ) {
                     d.responseObj.json({

@@ -108,12 +108,13 @@ $('#hongbao-check-btn').click(function(){
                 var $toastContent = $('<span class=\'green\'>' 
                     + ret.description_right + '</span>');
                 Materialize.toast($toastContent, 3000);
-
-                $('#hongbao-card-content').prepend('<br><p>' + ret.box + '</p>');
-                $('#show-me-ur-money-btn').text("<i class=\"icon-lock-open yellow darken-3\"></i>");
+                if( !$('#boxOpen') ) {
+                  $('#hongbao-card-content').prepend('<br><p id="boxOpen">' + ret.box + '</p>');
+                  $('#show-me-ur-money-btn').html("<i class=\"icon-lock-open yellow darken-3\"></i>");
+                }
                 
             }
-            else {
+            else if (ret.result == 'ok'){
                 var $toastContent = $('<span class=\'green\'>' 
                     + ret.description_wrong + '</span>');
                 Materialize.toast($toastContent, 3000);
@@ -122,6 +123,11 @@ $('#hongbao-check-btn').click(function(){
 
                 $('#show-me-ur-money-btn').addClass('disabled modal-close');
                 $('#show-me-ur-money-btn').html("<i class=\"icon-lock yellow darken-3\"></i>");
+            }
+            else {
+                var $toastContent = $('<span class=\'green\'>' 
+                    + '呃……出错了' + '</span>');
+                Materialize.toast($toastContent, 3000);
             }
         }
     });
