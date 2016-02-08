@@ -69,9 +69,7 @@ $('#send-hongbao').click(function(){
     $.ajax({
         url: "/hongbao/set",
         method: "POST",
-        data: { 
-            data: g_input
-        },
+        data: g_input,
         success: function(ret){
             console.log(ret);
             window.location = '/bao/' + ret.location + '.html#' + ret.hash;

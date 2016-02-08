@@ -3,6 +3,7 @@ var events = require( 'events' );
 // module of mongodb
 var mgDB = require( '../database/mgDB' );
 var randStr = require("generate-key");
+var fs = require('fs');
 
 var router = express.Router();
 /**init a object of mongodb**/
@@ -46,9 +47,9 @@ router.get('/hongbao', function(req, res, next) {
 
 router.post('/hongbao/set', function(req, res, next) {
     var ua = req.headers['user-agent'].toLowerCase();
-    console.log(req.body.data);
+    console.log(req.body);
     
-    var reqData = req.body.data;
+    var reqData = req.body;
     var windowHash = randStr.generateKey(8);
     var windowLocation = randStr.generateKey(8);
     var recData = {};
@@ -61,30 +62,26 @@ router.post('/hongbao/set', function(req, res, next) {
     recData['description_name'] = reqData['description_name'];
 
     // write file syn
-    var fs = require('fs')
-    fs.readFileSync('../public/tpl.html', 'utf8', function (err,data) {
-        if (err) {
-            return console.log(err);
-        }
+    var templatePath = 'public/tpl.html';
+    var data = fs.readFileSync(templatePath, 'utf8');
+        
+        console.log('read ok');
        
-        var result = data;
-        for (var idx in reqData) {:
+        for (var idx in reqData) {
             var pt = new RegExp( '{{' + idx + '}}', "g" ); 
-            result = result.replace( pt, reqData[idx] );
+            data = data.replace( pt, reqData[idx] );
         }
         
-
-        fs.writeFileSync('../public/bao/' + windowLocation + '.html', result, 'utf8', function (err) {
-            if (err) return console.log(err);
-        });
-    });  
+        var filePath = 'public/bao/' + windowLocation + '.html';
+        console.log(filePath);
+        fs.writeFileSync(filePath, data);
      
     res.json({
         location: windowLocation,
         hash: windowHash
     });
 
-    mgdb.insert( dataEvents, 'insert_test', 'hongbao', );    
+    mgdb.insert(dataEvents, 'insert_test', 'hongbao', recData);    
 
 });
 
