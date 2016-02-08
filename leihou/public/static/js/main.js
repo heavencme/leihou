@@ -32,16 +32,15 @@ inputLenCount('description-wrong', 20);
 
 /* modal options */
 $('.modal-trigger').leanModal({
-    dismissible: true, // Modal can be dismissed by clicking outside of the modal
-    opacity: .5, // Opacity of modal background
-    in_duration: 50, // Transition in duration
-    out_duration: 100, // Transition out duration
-    ready: function() { // Callback for Modal open
-        //console.log(this);
+    dismissible: true, 
+    opacity: .5, 
+    in_duration: 50, 
+    out_duration: 100, 
+    ready: function() { 
 
     }, 
-    complete: function() { // Callback for Modal close
-        //console.log('Closed'); 
+    complete: function() { 
+        
     } 
 });
 
@@ -68,14 +67,12 @@ $('#send-hongbao').click(function(){
     sendInfoValidate();
     g_input['time'] = new Date().getTime();
 
-    console.log(g_input);
-
     $.ajax({
         url: "/hongbao/set",
         method: "POST",
         data: g_input,
         success: function(ret){
-            //console.log(ret);
+            
             window.location = '/bao/' + ret.location + '.html#' + ret.hash;
         }
     });
@@ -91,7 +88,7 @@ $('#show-me-ur-money-btn').click(function(){
         ( getCookie('miss') == (window.location.hash).replace(/#/g, '') ); 
     
     if (isLocked) {
-      
+
         $('#show-me-ur-money-btn').html("<i class=\"icon-lock yellow darken-3\"></i>");
         return;
     }
@@ -122,8 +119,7 @@ $('#hongbao-check-btn').click(function(e){
         method: "POST",
         data: clientData,
         success: function(ret){
-            console.log(ret);
-            console.log(userChoice);
+            
             if (ret.result == 'ok' && ret.key == userChoice) {
                 var $toastContent = $('<span class=\'green\'>' 
                     + ret.description_right + '</span>');
@@ -204,7 +200,7 @@ function inputLenCount(ipnutId, maxLen) {
 
     inObj.keyup(function(){
         var inLen = inObj.val().length;
-        //console.log('out: '+outObj.text());
+        
         if (inLen > maxLen) {
             outObj.css( "color", "red" );
             g_input[isValid] = false;
@@ -213,7 +209,7 @@ function inputLenCount(ipnutId, maxLen) {
             g_input[ ipnutId.replace(/-/g,"_") ] = inObj.val();
         }
         outObj.text("已输入" + inLen + "/" + maxLen);
-        //console.log(g_input);
+        
 
     });
 
