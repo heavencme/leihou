@@ -51,6 +51,8 @@ router.post('/hongbao/set', function(req, res, next) {
     var reqData = req.body.data;
     var windowHash = randStr.generateKey(8);
     var windowLocation = randStr.generateKey(8);
+    var recData = {};
+    recData[windowHash] = req.body.data.answear_a_ok == true ? req.body.data.
     
     reqData['val_answear_1'] = randStr.generateKey(4);
     reqData['val_answear_2'] = randStr.generateKey(4);
@@ -58,19 +60,19 @@ router.post('/hongbao/set', function(req, res, next) {
  
     // write file syn
     var fs = require('fs')
-    fs.readFileSync(../public/tpl.html, 'utf8', function (err,data) {
+    fs.readFileSync('../public/tpl.html', 'utf8', function (err,data) {
         if (err) {
             return console.log(err);
         }
-        
+       
         var result = data;
-        for (var idx in reqData) {
-            result = result.replace(/{{description_name}}/g, 'replacement');
-            
+        for (var idx in reqData) {:
+            var pt = new RegExp( '{{' + idx + '}}', "g" ); 
+            result = result.replace( pt, reqData[idx] );
         }
+        
 
-
-        fs.writeFileSync(someFile, result, 'utf8', function (err) {
+        fs.writeFileSync('../public/bao/' + windowLocation + '.html', result, 'utf8', function (err) {
             if (err) return console.log(err);
         });
     });  
@@ -79,7 +81,7 @@ router.post('/hongbao/set', function(req, res, next) {
         location: windowLocation,
         hash: windowHash
     });
-    //mgdb.insert( dataEvents, 'insert_test', 'hongbao', docArr );    
+    mgdb.insert( dataEvents, 'insert_test', 'hongbao', );    
 
 });
 
