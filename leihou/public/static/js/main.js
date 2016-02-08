@@ -120,7 +120,7 @@ $('#hongbao-check-btn').click(function(){
                 
                 setCookie('miss', clientData.clientHash, 3);
 
-                $('#show-me-ur-money-btn').addClass('disabled');
+                $('#show-me-ur-money-btn').addClass('disabled modal-close');
                 $('#show-me-ur-money-btn').html("<i class=\"icon-lock yellow darken-3\"></i>");
             }
         }
