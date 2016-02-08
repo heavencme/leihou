@@ -27,7 +27,7 @@ function getData( d ){
                     d.responseObj.json({ result: 'failed'}); 
                     return;   
                 } 
-                
+
                 //console.log(d.responseObj);
                 if ( d.data[0].answearHash ) {
                     d.responseObj.json({
@@ -83,6 +83,8 @@ router.post('/hongbao/set', function(req, res, next) {
     recData['answearHash'] = reqData['answear_a_ok'] == true ? reqData['val_answear_1'] : reqData['val_answear_2'];
     recData['description_name'] = reqData['description_name'];
     recData['hongbao_code'] = reqData['hongbao_code'];
+    recData['description_right'] = reqData['description_right'];
+    recData['description_wrong'] = reqData['description_wrong'];
 
     // write file syn
     var templatePath = 'public/tpl.html';
