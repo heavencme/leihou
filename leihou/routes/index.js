@@ -67,10 +67,11 @@ router.get('/hongbao', function(req, res, next) {
     //console.log(ua);
     writeLog( 'hongbao', ua );
 
-    res.render('index', { title: 'Express' });
+    res.render('index', { title: '你要干嘛？' });
 });
 
 router.post('/hongbao/set', function(req, res, next) {
+    /**
     var ua = req.headers['user-agent'].toLowerCase();
     if ( ua.search(/micromessenger/) < 0 ) {
         res.json({
@@ -79,6 +80,7 @@ router.post('/hongbao/set', function(req, res, next) {
         });
         return;
     }
+    **/
 
     //console.log(req.body);
     writeLog('hongbao', ua);
@@ -122,12 +124,13 @@ router.post('/hongbao/set', function(req, res, next) {
 });
 
 router.post('/hongbao/report', function(req, res, next) {
+    /**
     var ua = req.headers['user-agent'].toLowerCase();
     if ( ua.search(/micromessenger/) < 0 ) {
         res.json({data: 'received'});
         return;
     }
-
+    **/
     //console.log(ua);
     writeLog('hongbao', ua);
 
@@ -138,12 +141,13 @@ router.post('/hongbao/report', function(req, res, next) {
 });
 
 router.post('/hongbao/check', function(req, res, next) {
+    /**
     var ua = req.headers['user-agent'].toLowerCase();
     if ( ua.search(/micromessenger/) < 0 ) {
         res.json({ result: 'failed'}); 
         return;
     }
-
+    **/
     //console.log(ua);
     writeLog('hongbao', ua);
     var findObj = {
