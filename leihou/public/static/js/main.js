@@ -70,6 +70,8 @@ $('#send-hongbao').click(function(){
     var newHash = sendInfoValidate();
     if (newHash != '#home') {
         window.location.hash = newHash;
+
+        /* if don't return false, jq will reset  window hash to '#'*/
         return false;
     }
     g_input['time'] = new Date().getTime();
@@ -251,7 +253,6 @@ function sendInfoValidate() {
     for (var idx in g_input) {
         if ( 'isValid' != idx && 'modal_bug_text' != idx && g_input[idx].length == 0 ) {
             var newHash = '#' + idx.replace(/_/g, '-');
-            window.location.hash = newHash;
             return newHash;
         }
     }
