@@ -67,7 +67,9 @@ $('#modal-bug-submit').click(function(e){
 
 /* validate and send hongbao */
 $('#send-hongbao').click(function(){
-    if ( ! sendInfoValidate() ) {
+    var newHash = sendInfoValidate();
+    if (newHash != '#home') {
+        window.location.hash = newHash;
         return;
     }
     g_input['time'] = new Date().getTime();
@@ -230,7 +232,7 @@ function inputLenCount(ipnutId, maxLen) {
 
 }
 
-/* send-hongbao validate */
+/* send-hongbao validate: #home --> valid */
 function sendInfoValidate() {
     
     /* chose valid answear */
@@ -248,12 +250,13 @@ function sendInfoValidate() {
     /* test not empty */
     for (var idx in g_input) {
         if ( 'isValid' != idx && 'modal_bug_text' != idx && g_input[idx].length == 0 ) {
-            window.location.hash = '#' + idx.replace(/_/g, '-');
-            return false;
+            var newHash = '#' + idx.replace(/_/g, '-');
+            window.location.hash = newHash;
+            return newHash;
         }
     }
 
-    return true;
+    return '#home';
 
 }
 
