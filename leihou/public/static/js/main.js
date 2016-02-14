@@ -73,7 +73,7 @@ $('#send-hongbao').click(function(){
 
         /* notify users to fullfill */
         var $toastContent = $('<span class=\'green\'>' 
-            + 先填写完整再发送哦 + '</span>');
+            + '先填写完整再发送哦' + '</span>');
         Materialize.toast($toastContent, 5000);
 
         /* if don't return false, jq will reset  window hash to '#' */
