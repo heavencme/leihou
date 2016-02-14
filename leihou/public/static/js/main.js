@@ -288,7 +288,6 @@ function eraseCookie(name) {
 function sendAlsoIconShake() {
     if ( 0 < $("#send-alson").length ) {
         $("#send-alson").addClass("shake");
-        alert('ok');
         return;
     }
     else {
