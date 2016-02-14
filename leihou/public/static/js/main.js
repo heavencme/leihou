@@ -131,7 +131,7 @@ $('#hongbao-check-btn').click(function(e){
             if (ret.result == 'ok' && ret.key == userChoice) {
                 var $toastContent = $('<span class=\'green\'>' 
                     + ret.description_right + '</span>');
-                Materialize.toast($toastContent, 3000);
+                Materialize.toast($toastContent, 5000);
 
                 /* open box for first time*/
                 if( 0 >= $('#boxOpen').length ) {
@@ -143,7 +143,7 @@ $('#hongbao-check-btn').click(function(e){
             else if (ret.result == 'ok' && ret.key != userChoice){
                 var $toastContent = $('<span class=\'green\'>' 
                     + ret.description_wrong + '</span>');
-                Materialize.toast($toastContent, 3000);
+                Materialize.toast($toastContent, 5000);
                 
                 setCookie('miss', clientData.clientHash, 3);
 
@@ -153,8 +153,11 @@ $('#hongbao-check-btn').click(function(e){
             else {
                 var $toastContent = $('<span class=\'green\'>' 
                     + '呃……红包不是发你的？' + '</span>');
-                Materialize.toast($toastContent, 3000);
+                Materialize.toast($toastContent, 5000);
             }
+
+            /* add shake effect ot send also icon */
+            sendAlsoIconShake();
         },
         error: function(e){
             alert('呃……服务器被我关了');
@@ -279,6 +282,17 @@ function getCookie(name) {
 
 function eraseCookie(name) {
     createCookie(name,"",-1);
+}
+
+/* send also icon shake */
+function sendAlsoIconShake() {
+    if ( 0 >= $("#send-alson").length ) {
+        $("#send-alson").addClass("shake-opacity");
+        return;
+    }
+    else {
+        return;
+    }
 }
 
 
