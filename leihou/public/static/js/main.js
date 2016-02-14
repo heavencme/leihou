@@ -71,7 +71,12 @@ $('#send-hongbao').click(function(){
     if (newHash != '#home') {
         window.location.hash = newHash;
 
-        /* if don't return false, jq will reset  window hash to '#'*/
+        /* notify users to fullfill */
+        var $toastContent = $('<span class=\'green\'>' 
+            + 先填写完整再发送哦 + '</span>');
+        Materialize.toast($toastContent, 5000);
+
+        /* if don't return false, jq will reset  window hash to '#' */
         return false;
     }
     g_input['time'] = new Date().getTime();
