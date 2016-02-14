@@ -287,7 +287,7 @@ function eraseCookie(name) {
 /* send also icon shake */
 function sendAlsoIconShake() {
     if ( 0 < $("#send-alson").length ) {
-        $("#send-alson").addClass("shake-opacity");
+        $("#send-alson").addClass("shake");
         return;
     }
     else {
