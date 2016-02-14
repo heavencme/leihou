@@ -70,7 +70,7 @@ $('#send-hongbao').click(function(){
     var newHash = sendInfoValidate();
     if (newHash != '#home') {
         window.location.hash = newHash;
-        return;
+        return false;
     }
     g_input['time'] = new Date().getTime();
 
