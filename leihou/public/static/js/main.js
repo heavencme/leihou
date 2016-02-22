@@ -144,7 +144,7 @@ $('#hongbao-check-btn').click(function(e){
 
                 /* open box for first time*/
                 if( 0 >= $('#boxOpen').length ) {
-                  $('#hongbao-card-content').prepend('<br><p id="boxOpen">红包口令: ' + ret.box + '</p>');
+                  $('#hongbao-card-content').prepend('<br><p id="boxOpen" class="shake">红包口令: ' + ret.box + '</p>');
                   $('#show-me-ur-money-btn').html("<i class=\"icon-lock-open yellow darken-3\"></i>");
                 }
                 
